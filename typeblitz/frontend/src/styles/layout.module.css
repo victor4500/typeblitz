@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════
+   layout.module.css
+   Header, Nav, Main, Page wrapper
+═══════════════════════════════════════════════ */
+
+/* ── Header ──────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 10, 15, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  user-select: none;
+}
+.logoDim { opacity: 0.55; }
+
+/* ── Nav ─────────────────────────────────────── */
+.nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navBtn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.42rem 0.95rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--ease-fast);
+}
+.navBtn:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+.navBtnActive {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(124, 92, 252, 0.1);
+}
+
+/* ── Main container ──────────────────────────── */
+.main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+/* ── Page ────────────────────────────────────── */
+.page {
+  animation: fadeIn 0.28s ease;
+}
+
+/* ── Stat Row ────────────────────────────────── */
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ── Controls Bar ────────────────────────────── */
+.controls {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Action Bar ──────────────────────────────── */
+.actionBar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.actionBarRight {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.liveVal { color: var(--text); font-weight: 700; }
+.liveAccent { color: var(--accent); }
+.liveRed    { color: var(--red); }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 640px) {
+  .header { padding: 0.9rem 1rem; }
+  .statRow { grid-template-columns: 1fr 1fr; }
+  .main { padding: 1.2rem 0.9rem 4rem; }
+  .logo { font-size: 1.1rem; }
+}

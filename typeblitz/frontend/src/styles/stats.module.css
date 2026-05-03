@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════
+   stats.module.css
+   Estilos da página de estatísticas
+═══════════════════════════════════════════════ */
+
+.header {
+  margin-bottom: 2rem;
+}
+.header h2 { font-size: 1.7rem; }
+.header p  { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
+
+/* ── Best Row ────────────────────────────────── */
+.bestRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.bestCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.3rem;
+}
+.bestCard .lbl {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+.bestCard .val {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* ── Chart ───────────────────────────────────── */
+.chartWrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 2rem;
+}
+.chartWrap h3 {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.chart { width: 100%; height: 110px; }
+
+/* ── History ─────────────────────────────────── */
+.historySection h3 {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.historyHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.2rem;
+  font-size: 0.84rem;
+  transition: background var(--ease-fast);
+}
+.historyItem:hover { background: var(--surface2); }
+
+.hWpm   { font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem; color: var(--accent); min-width: 70px; }
+.hAcc   { color: var(--green); min-width: 50px; }
+.hMode  { color: var(--muted); flex: 1; }
+.hTime  { color: var(--muted); font-size: 0.74rem; text-align: right; }
+
+.historyList { display: flex; flex-direction: column; gap: 0.4rem; }
+.emptyState  { text-align: center; color: var(--muted); padding: 3rem 1rem; font-size: 0.9rem; }
+
+/* ── Ranking Table ───────────────────────────── */
+.rankSection { margin-top: 2.5rem; }
+.rankSection h3 {
+  font-size: 0.75rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  font-weight: 700; margin-bottom: 1rem;
+}
+
+.rankTable { width: 100%; border-collapse: collapse; }
+.rankTable th {
+  font-size: 0.68rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 0.5rem 0.8rem; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.rankTable td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.86rem;
+}
+.rankTable tr:hover td { background: var(--surface2); }
+
+.rankPos       { font-family: var(--font-mono); color: var(--muted); width: 40px; }
+.rankPosGold   { color: var(--yellow); font-weight: 700; }
+.rankPosSilver { color: #c0c0c0; font-weight: 700; }
+.rankPosBronze { color: #cd7f32; font-weight: 700; }
+.rankWpm       { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .bestRow { grid-template-columns: 1fr 1fr; }
+}

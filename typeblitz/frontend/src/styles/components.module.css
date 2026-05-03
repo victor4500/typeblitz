@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════════
+   components.module.css
+   Componentes compartilhados reutilizáveis:
+   - Button
+   - Chip / ChipGroup
+   - StatCard
+   - ProgressBar
+   - Toggle
+   - RankBadge
+═══════════════════════════════════════════════ */
+
+/* ── Button ──────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--ease-fast);
+  white-space: nowrap;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 20px var(--glow);
+}
+.btnPrimary:hover {
+  background: #8b6dfc;
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px var(--glow);
+}
+.btnPrimary:active { transform: translateY(0); }
+
+.btnGhost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btnGhost:hover {
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+.btnDanger {
+  background: transparent;
+  color: var(--accent2);
+  border: 1px solid var(--accent2);
+}
+.btnDanger:hover {
+  background: var(--accent2);
+  color: #fff;
+}
+
+/* ── Chip ────────────────────────────────────── */
+.chipGroup {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--ease-fast);
+}
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.chipActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 12px var(--glow-sm);
+}
+
+/* ── Separator ───────────────────────────────── */
+.sep {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+  margin: 0 0.15rem;
+  flex-shrink: 0;
+}
+
+/* ── StatCard ────────────────────────────────── */
+.statCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--ease-mid);
+}
+.statCard::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity var(--ease-mid);
+}
+.statCard:hover::after { opacity: 1; }
+
+.statLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+.statUnit {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-left: 0.2rem;
+}
+
+/* ── ProgressBar ─────────────────────────────── */
+.progressWrap {
+  margin-bottom: 1rem;
+}
+.progressTrack {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  transition: width 0.12s linear;
+}
+
+/* ── Toggle ──────────────────────────────────── */
+.toggleWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.toggleLabel {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.toggleSwitch {
+  width: 34px;
+  height: 18px;
+  background: var(--border);
+  border-radius: 9px;
+  position: relative;
+  transition: background var(--ease-fast);
+  flex-shrink: 0;
+}
+.toggleSwitchOn { background: var(--accent); }
+.toggleSwitch::after {
+  content: '';
+  position: absolute;
+  left: 3px; top: 3px;
+  width: 12px; height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left var(--ease-fast);
+}
+.toggleSwitchOn::after { left: 19px; }
+
+/* ── RankBadge ───────────────────────────────── */
+.rankBadge {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.rankS { background: rgba(255,209,102,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+.rankA { background: rgba(57,217,138,0.15);  color: var(--green);  border: 1px solid var(--green); }
+.rankB { background: rgba(124,92,252,0.15);  color: var(--accent); border: 1px solid var(--accent); }
+.rankC { background: rgba(107,107,138,0.15); color: var(--muted);  border: 1px solid var(--muted); }
+
+/* ── HardcoreBadge ───────────────────────────── */
+.hardcoreBadge {
+  background: rgba(255,77,109,0.15);
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  animation: pulse 2s infinite;
+}

@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════
+   code.module.css
+   Estilos da aba Code Typing
+═══════════════════════════════════════════════ */
+
+/* ── Code Box ────────────────────────────────── */
+.codeBox {
+  background: #0d0d14;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.6rem 2rem 1.6rem 2.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  cursor: text;
+  transition: border-color var(--ease-fast);
+  min-height: 140px;
+  overflow-x: auto;
+}
+.codeBox:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--glow-sm);
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  cursor: text;
+  font-size: 16px;
+}
+
+/* ── Code Display ────────────────────────────── */
+.codeDisplay {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  line-height: 2;
+  letter-spacing: 0;
+  user-select: none;
+  white-space: pre-wrap;
+  tab-size: 2;
+}
+
+.char        { position: relative; }
+.charPending { color: var(--muted); }
+.charCorrect { color: var(--green); }
+.charWrong   { color: var(--red); background: rgba(255,77,109,0.12); border-radius: 2px; }
+
+.charCursor::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.05em; bottom: 0;
+  width: 2px;
+  background: var(--cyan);
+  animation: blink 0.85s step-end infinite;
+  box-shadow: 0 0 8px var(--cyan);
+  border-radius: 1px;
+}
+
+/* ── Lang Tag ────────────────────────────────── */
+.langTag {
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface2);
+  border-radius: 4px;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--border);
+}
+
+/* ── Line numbers strip ──────────────────────── */
+.lineNums {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1.6rem 0.3rem 0;
+  gap: 0;
+  color: var(--border2);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  line-height: 2;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Complete flash ──────────────────────────── */
+.codeBoxComplete {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 20px rgba(57, 217, 138, 0.2) !important;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
